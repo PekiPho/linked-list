@@ -102,6 +102,21 @@ class LinkedList{
             return -1;
         else return i;
     }
+    insertAt(value,index){
+        var tmp=this.at(index);
+        var dtemp=this.head;
+        if(tmp==0){
+            this.append(value);
+        }
+        else{
+            
+        }
+
+    }
+
+    deleteAt(index){
+        
+    }
 }
 
 const lista = new LinkedList();
@@ -111,8 +126,10 @@ lista.prepend(20);
 lista.prepend(1);
 lista.append(9);
 //lista.pop();
+lista.insertAt(5,2);
 lista.toString();
-//console.log(lista.at(0).info);
-//console.log(lista.contains(20));
-//console.log(lista.size());
-console.log(lista.find(9));
+//console.log(lista.at(0).info); return 1
+//console.log(lista.contains(20)); return true
+//console.log(lista.size()); return 4
+//console.log(lista.find(9)); //exists return 3
+//console.log(lista.find(10)); // does not exist return -1
