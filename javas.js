@@ -9,6 +9,7 @@ class Node{
 }
 
 class LinkedList{
+
     constructor(){
         this.head=this.tail=null;
     }
@@ -104,29 +105,43 @@ class LinkedList{
     }
     insertAt(value,index){
         var tmp=this.at(index);
-        var dtemp=this.head;
+        
         if(tmp==0){
             this.append(value);
         }
         else{
-            
+            var drugi= tmp.next;
+            tmp.next=new Node(value);
+            tmp=tmp.next;
+            tmp.next= drugi;
         }
 
     }
 
     deleteAt(index){
-        
+        if(this.at(index)==null) return 0;
+        else if(index==0)
+        {
+            this.head=this.head.next;
+        }
+        else{
+            var tmp = this.at(index-1);
+            var temp2=this.at(index);
+    
+            tmp.next=temp2.next;
+        }
     }
 }
 
-const lista = new LinkedList();
+let lista = new LinkedList();
 
 lista.append(7);
 lista.prepend(20);
 lista.prepend(1);
 lista.append(9);
 //lista.pop();
-lista.insertAt(5,2);
+//lista.insertAt(5,2);
+lista.deleteAt(3);
 lista.toString();
 //console.log(lista.at(0).info); return 1
 //console.log(lista.contains(20)); return true
